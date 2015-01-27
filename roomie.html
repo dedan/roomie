@@ -3,12 +3,36 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+
+<template name="ApplicationLayout">
+
+  <div class="container">
+    <header>
+      <h1>title</h1>
+    </header>
+
+
+    <div>
+      {{> yield}}
+    </div>
+  </div>
 </template>
+
+<template name="home">
+  <h2>welcome to the amazing roomie app</h2>
+  <p>explanation of how it works</p>
+  <p>create new offer by pasting link</p>
+
+  <form class="new-offer">
+    <input name="url" type="text" class="form-control">
+    <button>create</button>
+
+    <br>
+    <div>{{offer.text}}</div>
+    <div>{{offer.title}}</div>
+  </form>
+</template>
+
+
