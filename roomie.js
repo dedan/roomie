@@ -1,3 +1,5 @@
+// https://sfbay.craigslist.org/sfc/roo/4863699604.html
+
 Router.configure({
   layoutTemplate: 'ApplicationLayout'
 });
@@ -8,8 +10,24 @@ Router.route('/', function () {
 
 Offers = new Mongo.Collection("offers");
 
+function convertToSlug(text)
+{
+    return text
+        .toLowerCase()
+        .replace(/ /g,'-')
+        .replace(/[^\w-]+/g,'')
+        ;
+}
 
 if (Meteor.isClient) {
+
+  var offerId = Offers.insert({
+    createdAt: new Date(),
+    processing: true,
+    filled: false,
+    secret: Math.random().toString(36).substring(7)
+  });
+
 
   Template.home.events({
     'submit .new-offer': function (event) {
@@ -17,18 +35,18 @@ if (Meteor.isClient) {
       console.log('clicked', event.target.url.value);
       var url = event.target.url.value
 
-      var o = Offers.insert({
-        id: 1,
-        listingUrl: url,
-        createdAt: new Date()
-      });
+      Offers.update(offerId, {$set: {
+        email: event.target.email.value,
+        filled: true
+      }});;
+
 
       var data = {
-        objectId: o,
+        objectId: offerId,
         url: url
       }
       Meteor.call("checkTwitter", data, function(error, results) {
-          console.log(results.content); //results.data should be a JSON object
+          console.log(results); //results.data should be a JSON object
       });
 
 
@@ -38,9 +56,8 @@ if (Meteor.isClient) {
 
   Template.home.helpers({
     offer: function () {
-      var a = Offers.findOne({id: 1})
-      console.log(a);
-      return a
+      console.log('helper', offerId);
+      return Offers.findOne({_id: offerId})
     }
   })
 }
@@ -55,7 +72,13 @@ if (Meteor.isServer) {
             this.unblock();
             Offers.update(data.objectId, {$set: {text: 'extracting'}});
             var $ = cheerio.load(Meteor.http.get(data.url).content);
-            return Offers.update(data.objectId, {$set: {title: $('h2.postingtitle').text()}});;
+            var title = $('h2.postingtitle').text().trim()
+            var update_data = {
+              title: title,
+              slug: convertToSlug(title),
+              processing: false
+            }
+            return Offers.update(data.objectId, {$set: update_data});;
         }
     });
 

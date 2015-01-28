@@ -1,5 +1,5 @@
 <head>
-  <title>roomie</title>
+  <title>roomie app</title>
 </head>
 
 <body>
@@ -20,19 +20,37 @@
   </div>
 </template>
 
+
+
 <template name="home">
   <h2>welcome to the amazing roomie app</h2>
   <p>explanation of how it works</p>
   <p>create new offer by pasting link</p>
 
   <form class="new-offer">
+    <label for="url">url</label>
     <input name="url" type="text" class="form-control">
-    <button>create</button>
+    <label for="email">email</label>
+    <input name="email" type="text" class="form-control">
+    <button class="btn btn-primary">create</button>
+  </form>
 
     <br>
-    <div>{{offer.text}}</div>
-    <div>{{offer.title}}</div>
-  </form>
+
+    {{#if offer.filled}}
+
+      {{#if offer.processing}}
+        working on it
+      {{else}}
+        <div>here is your offer</div>
+        <div>{{offer.title}}</div>
+        <div>secret link: roomie.com/{{offer.secret}}</div>
+        <div>public link: roomie.com/{{offer.slug}}</div>
+        <div>we'll also send you this stuff by email</div>
+      {{/if}}
+    {{/if}}
+
+
 </template>
 
 
