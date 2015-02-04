@@ -37,9 +37,8 @@
 
     <br>
 
-    {{#if offer.filled}}
-
-      {{#if offer.processing}}
+    {{#if offer}}
+      {{#unless offer.ready}}
         working on it
       {{else}}
         <div>here is your offer</div>
@@ -47,7 +46,7 @@
         <div>secret link: roomie.com/{{offer.secret}}</div>
         <div>public link: roomie.com/{{offer.slug}}</div>
         <div>we'll also send you this stuff by email</div>
-      {{/if}}
+      {{/unless}}
     {{/if}}
 
 

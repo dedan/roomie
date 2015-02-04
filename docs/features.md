@@ -1,5 +1,6 @@
 features
 
+* if I decided against using the FB login I could offer that I just generate an email address that people connect with the craigslist offer
 * directly post to craigslist (if possible)
 * save email templates for searchers
   - this could also be solved by searchers having a profile with which they apply, but one of the key features is the *no signup effor* of the searchers
