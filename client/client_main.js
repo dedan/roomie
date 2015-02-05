@@ -29,26 +29,27 @@ Template.home.helpers({
 
 Template.publicOffer.events({
   'submit .new-request': function (event) {
-    console.log('bla');
+
+    var userId
+    if (Meteor.user()) {
+      userId = Meteor.user()._id
+    } else {
+      Meteor.loginWithFacebook({}, function(err){
+        userId = Meteor.user()._id
+
+      });
+    }
+
+    console.log('bla', userId);
     var requestId = Requests.insert({
       subject: event.target.subject.value,
       text: event.target.text.value,
-      offerId: this.offer._id
+      offerId: this.offer._id,
+      userId: userId
     })
     Session.set('requestId', requestId)
 
     return false;
-  },
-  'click .test': function (event) {
-    console.log('test');
-      Meteor.loginWithFacebook({}, function(err){
-          if (err) {
-              console.log(err);
-              throw new Meteor.Error("Facebook login didn't work!");
-          }
-
-
-      });
   }
 
 })

@@ -22,7 +22,7 @@ Accounts.onCreateUser(function(options,user) {
 
   options.profile.email = user.services.facebook.email;
   options.profile.facebookId = user.services.facebook.id;
-  options.profile.picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
+  options.profile.picture = "http://graph.facebook.com/" + user.services.facebook.id + "/picture";
   user.profile = options.profile;
 
   user.profile = options.profile;
