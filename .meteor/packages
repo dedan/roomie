@@ -11,3 +11,5 @@ bootstrap
 iron:router
 http
 mrt:cheerio
+accounts-facebook
+service-configuration

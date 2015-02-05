@@ -1,5 +1,4 @@
 
-
 Template.home.events({
   'submit .new-offer': function (event) {
 
@@ -39,7 +38,19 @@ Template.publicOffer.events({
     Session.set('requestId', requestId)
 
     return false;
+  },
+  'click .test': function (event) {
+    console.log('test');
+      Meteor.loginWithFacebook({}, function(err){
+          if (err) {
+              console.log(err);
+              throw new Meteor.Error("Facebook login didn't work!");
+          }
+
+
+      });
   }
+
 })
 
 Template.publicOffer.helpers({
