@@ -2,17 +2,12 @@
   <title>roomie app</title>
 </head>
 
-<body>
-</body>
-
 
 <template name="ApplicationLayout">
-
   <div class="container">
     <header>
       <h1>title</h1>
     </header>
-
 
     <div>
       {{> yield}}
@@ -46,10 +41,19 @@
         <div>secret link: roomie.com/{{offer.secret}}</div>
         <div>public link: roomie.com/{{offer.slug}}</div>
         <div>we'll also send you this stuff by email</div>
+
+        <div>go to offer: <a href="/offers/{{offer.secret}}">here</a></div>
       {{/unless}}
     {{/if}}
+</template>
 
+<template name="offer">
+  <div>{{offer.title}}</div>
+  <div>{{offer.email}}</div>
 
+  {{#each requests}}
+    {{subject}} - {{text}}<br>
+  {{/each}}
 </template>
 
 
