@@ -42,7 +42,7 @@
         <div>public link: roomie.com/{{offer.slug}}</div>
         <div>we'll also send you this stuff by email</div>
 
-        <div>go to offer: <a href="/offers/{{offer.secret}}">here</a></div>
+        <div>go to offer: <a href="/offers/secret/{{offer.secret}}">here</a></div>
       {{/unless}}
     {{/if}}
 </template>
@@ -57,3 +57,25 @@
 </template>
 
 
+<template name="publicOffer">
+  <div>{{offer.title}}</div>
+  <div>{{offer.email}}</div>
+
+  {{#unless request}}
+    <div>apply here</div>
+
+    <form class="new-request">
+      <label for="subject">subject</label>
+      <input name="subject" type="text" class="form-control">
+      <label for="text">text</label>
+      <textarea name="text" class="form-control"></textarea>
+      <button class="btn btn-primary">send request</button>
+    </form>
+  {{else}}
+    my request
+
+    <div>{{request.subject}}</div>
+    <div>{{request.text}}</div>
+
+  {{/unless}}
+</template>

@@ -26,3 +26,24 @@ Template.home.helpers({
     return Offers.findOne({_id: Session.get('offerId')})
   }
 })
+
+
+Template.publicOffer.events({
+  'submit .new-request': function (event) {
+    console.log('bla');
+    var requestId = Requests.insert({
+      subject: event.target.subject.value,
+      text: event.target.text.value,
+      offerId: this.offer._id
+    })
+    Session.set('requestId', requestId)
+
+    return false;
+  }
+})
+
+Template.publicOffer.helpers({
+  request: function () {
+    return Requests.findOne({_id: Session.get('requestId')})
+  }
+})

@@ -8,7 +8,7 @@ Router.route('/', function () {
   this.render('home');
 });
 
-Router.route('/offers/:_secret', function () {
+Router.route('/offers/secret/:_secret', function () {
   this.render('offer', {
     data: function () {
       var offer = Offers.findOne({secret: this.params._secret});
@@ -26,3 +26,10 @@ Router.route('/offers/:_secret', function () {
   });
 });
 
+Router.route('/offers/:_slug', function () {
+  this.render('publicOffer', {
+    data: function () {
+      return {offer: Offers.findOne({slug: this.params._slug})}
+    }
+  })
+})
