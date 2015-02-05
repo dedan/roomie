@@ -1,4 +1,4 @@
-
+var mongo_url = process.env.MONGOHQ_URL;
 
 function convertToSlug(text) {
   return text
