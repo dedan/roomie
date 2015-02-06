@@ -1,0 +1,28 @@
+<template name="publicOffer">
+  <div>{{offer.title}}</div>
+  <div>{{offer.email}}</div>
+
+  {{#unless request}}
+
+
+    <div>apply here</div>
+
+    <form class="new-request">
+      <label for="subject">subject</label>
+      <input name="subject" type="text" class="form-control">
+      <label for="text">text</label>
+      <textarea name="text" class="form-control"></textarea>
+
+      <button class="fb-button btn btn-primary">connect with fb</button>
+
+      <button class="request-button btn btn-primary" {{disabled}}>send request</button>
+    </form>
+
+
+
+
+
+  {{else}}
+    request created. <a href="applicant/requests">got to list</a>
+  {{/unless}}
+</template>

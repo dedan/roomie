@@ -1,5 +1,6 @@
 features
 
+* allow `answer to emails`
 * if I decided against using the FB login I could offer that I just generate an email address that people connect with the craigslist offer
 * directly post to craigslist (if possible)
 * save email templates for searchers
