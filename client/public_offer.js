@@ -5,8 +5,9 @@ Template.publicOffer.events({
         console.log('errooooooor');
       }
     });
+    return false;
   },
-  'click .request-button': function (event) {
+  'submit .new-request': function (event) {
 
     var requestId = Requests.insert({
       subject: event.target.subject.value,
