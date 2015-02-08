@@ -33,3 +33,12 @@ Router.route('/offers/:_slug', function () {
     }
   })
 })
+
+Router.route('/requests', function () {
+  this.render('requests', {
+    data: function () {
+      var userId = Meteor.user() ? Meteor.user()._id : null
+      return {requests: Requests.find({userId: userId})}
+    }
+  })
+})
