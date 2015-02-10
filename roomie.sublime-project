@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/dedan/projects/roomie",
+      "folder_exclude_patterns": [".meteor", "packages"]
+		}
+	]
+}
