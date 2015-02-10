@@ -1,7 +1,12 @@
 // https://sfbay.craigslist.org/sfc/roo/4863699604.html
 
 Router.configure({
-  layoutTemplate: 'ApplicationLayout'
+  layoutTemplate: 'ApplicationLayout',
+  data: {
+    user: function () {
+      return Meteor.user()
+    }
+  }
 });
 
 Router.route('/', function () {

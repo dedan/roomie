@@ -7,9 +7,10 @@
 meteor-platform
 autopublish
 insecure
-bootstrap
 iron:router
 http
 mrt:cheerio
 accounts-facebook
 service-configuration
+email
+mizzao:bootstrap-3
