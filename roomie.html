@@ -1,9 +1,11 @@
 <head>
-  <title>roomie app</title>
+  <title>roomie</title>
 </head>
 
 
 <template name="ApplicationLayout">
+  {{> about}}
+
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -18,7 +20,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#about">About</a></li>
+            <li><a href="" data-toggle="modal" data-target="#about-modal">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
