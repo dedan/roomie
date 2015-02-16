@@ -24,13 +24,7 @@
             <li><a href="#contact">Contact</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li>
-              {{#if user}}
-                <a href="../navbar/">logout</a>
-              {{else}}
-                <a href="../navbar/">login</a>
-              {{/if}}
-            </li>
+            <li> {{> loginButtons }} </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
