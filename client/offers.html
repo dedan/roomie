@@ -19,7 +19,14 @@
   <div>list of requests</div>
   <ol>
     {{#each requests}}
-      <li>{{subject}} - {{text}}</li>
+      <li><a href="/my/offers/{{offerId}}/request/{{_id}}">{{subject}}{{offerId}}</a></li>
     {{/each}}
   </ol>
+</template>
+
+<template name="offerRequest">
+  hall
+  <div>{{request.subject}}</div>
+  <div>{{request.text}}</div>
+
 </template>

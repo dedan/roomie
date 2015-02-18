@@ -36,6 +36,26 @@ Router.route('/my/offers/:_id', function () {
   });
 });
 
+Router.route('/my/offers/:offerId/request/:requestId', function () {
+  this.render('offerRequest', {
+    data: function () {
+      var offer = Offers.findOne({_id: this.params.offerId});
+      var request
+
+      if (offer) {
+        request = Requests.findOne({_id: this.params.requestId})
+      }
+
+      var bla =  {
+        offer: offer,
+        request: request
+      }
+      console.log(bla);
+      return bla
+    }
+  })
+})
+
 Router.route('/offers/:_slug', function () {
   this.render('publicOffer', {
     data: function () {
