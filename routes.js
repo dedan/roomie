@@ -1,22 +1,17 @@
-// https://sfbay.craigslist.org/sfc/roo/4863699604.html
+// https://sfbay.craigslist.org/sfc/roo/4896566436.html
 
 Router.configure({
-  layoutTemplate: 'ApplicationLayout',
-  data: {
-    user: function () {
-      return Meteor.user()
-    }
-  }
+  layoutTemplate: 'layout'
 });
 
 Router.route('/', function () {
   this.render('home');
 });
 
-Router.route('/offers/secret/:_secret', function () {
+Router.route('/my/offers/:_id', function () {
   this.render('offer', {
     data: function () {
-      var offer = Offers.findOne({secret: this.params._secret});
+      var offer = Offers.findOne({_id: this.params._id});
       var requests
 
       // TODO: find proper solution to wait before offer is ready

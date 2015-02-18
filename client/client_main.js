@@ -1,3 +1,14 @@
+Template.layout.events({
+  'click .fb-button': function (event) {
+    Meteor.loginWithFacebook({}, function(err){
+      if(err) {
+        console.log('errooooooor');
+      }
+    });
+    return false;
+  }
+})
+
 
 Template.home.events({
   'submit .new-offer': function (event) {
@@ -6,8 +17,7 @@ Template.home.events({
     var offerId = Offers.insert({
       createdAt: new Date(),
       ready: false,
-      email: event.target.email.value,
-      secret: Math.random().toString(36).substring(7)
+      userId: Meteor.user()._id
     });
     Session.set('offerId', offerId)
 

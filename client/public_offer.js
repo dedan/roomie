@@ -1,12 +1,4 @@
 Template.publicOffer.events({
-  'click .fb-button': function (event) {
-    Meteor.loginWithFacebook({}, function(err){
-      if(err) {
-        console.log('errooooooor');
-      }
-    });
-    return false;
-  },
   'submit .new-request': function (event) {
 
     var requestId = Requests.insert({

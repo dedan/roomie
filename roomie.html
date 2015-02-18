@@ -3,7 +3,7 @@
 </head>
 
 
-<template name="ApplicationLayout">
+<template name="layout">
   {{> about}}
 
     <!-- Fixed navbar -->
@@ -19,10 +19,12 @@
           <a class="navbar-brand" href="#">Roomie</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="" data-toggle="modal" data-target="#about-modal">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          {{#if currentUser}}
+            <ul class="nav navbar-nav">
+              <li><a href="/offers">my offers</a></li>
+              <li><a href="/requests">my requests</a></li>
+            </ul>
+          {{/if}}
           <ul class="nav navbar-nav navbar-right">
             <li> {{> loginButtons }} </li>
           </ul>
@@ -40,31 +42,40 @@
 
 
 <template name="home">
-  <h2>welcome to the amazing roomie app</h2>
-  <p>explanation of how it works</p>
-  <p>create new offer by pasting link</p>
+  <h2>The roomie app</h2>
+  <p>
+    This is a website to help you with the selection of your new roommate. If you are looking for a new roommate, create your offer below. In case you want to check the status of your existing offer or requests, please log in.
+  </p>
+  <p>
+    To create a new offer, paste the link to your craigslist listing in the form below and create an offer by loggin in via facebook.
+  </p>
+  <p>
+    We only access your FB image and email address to make shure you are a real person. We don't access your friendlist and we don't post in your name.
+  </p>
 
   <form class="new-offer">
-    <label for="url">url</label>
-    <input name="url" type="text" class="form-control">
-    <label for="email">email</label>
-    <input name="email" type="text" class="form-control">
-    <button class="btn btn-primary">create</button>
+    <div class="form-group">
+      <label for="url">url</label>
+      <input name="url" type="text" class="form-control">
+    </div>
+    {{#unless currentUser}}
+      <button class="fb-button btn btn-primary">connect with your FB profile</button>
+    {{else}}
+      <button class="btn btn-primary">create</button>
+    {{/unless}}
   </form>
 
     <br>
-
     {{#if offer}}
       {{#unless offer.ready}}
         working on it
       {{else}}
         <div>here is your offer</div>
         <div>{{offer.title}}</div>
-        <div>secret link: roomie.com/{{offer.secret}}</div>
-        <div>public link: roomie.com/{{offer.slug}}</div>
+        <div>public link: roomie.com/offers/{{offer.slug}}</div>
         <div>we'll also send you this stuff by email</div>
 
-        <div>go to offer: <a href="/offers/secret/{{offer.secret}}">here</a></div>
+        <div>go to offer: <a href="/my/offers/{{offer._id}}">here</a></div>
       {{/unless}}
     {{/if}}
 </template>
