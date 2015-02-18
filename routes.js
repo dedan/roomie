@@ -8,6 +8,16 @@ Router.route('/', function () {
   this.render('landing');
 });
 
+Router.route('/my/offers', function () {
+  this.render('offers', {
+    data: function () {
+      return {
+        offers: Offers.find({userId: Meteor.user()._id})
+      }
+    }
+  })
+})
+
 Router.route('/my/offers/:_id', function () {
   this.render('offer', {
     data: function () {
@@ -34,7 +44,7 @@ Router.route('/offers/:_slug', function () {
   })
 })
 
-Router.route('/requests', function () {
+Router.route('/my/requests', function () {
   this.render('requests', {
     data: function () {
       var userId = Meteor.user() ? Meteor.user()._id : null
