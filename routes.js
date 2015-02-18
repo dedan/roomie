@@ -5,7 +5,7 @@ Router.configure({
 });
 
 Router.route('/', function () {
-  this.render('home');
+  this.render('landing');
 });
 
 Router.route('/my/offers/:_id', function () {

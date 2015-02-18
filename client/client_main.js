@@ -10,7 +10,7 @@ Template.layout.events({
 })
 
 
-Template.home.events({
+Template.landing.events({
   'submit .new-offer': function (event) {
 
     var url = event.target.url.value
@@ -30,7 +30,7 @@ Template.home.events({
   }
 });
 
-Template.home.helpers({
+Template.landing.helpers({
   offer: function () {
     return Offers.findOne({_id: Session.get('offerId')})
   }

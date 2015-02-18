@@ -1,0 +1,38 @@
+<template name="landing">
+  <h2>The roomie app</h2>
+  <p>
+    This is a website to help you with the selection of your new roommate. If you are looking for a new roommate, create your offer below. In case you want to check the status of your existing offer or requests, please log in.
+  </p>
+  <p>
+    To create a new offer, paste the link to your craigslist listing in the form below and create an offer by loggin in via facebook.
+  </p>
+  <p>
+    We only access your FB image and email address to make shure you are a real person. We don't access your friendlist and we don't post in your name.
+  </p>
+
+  <form class="new-offer">
+    <div class="form-group">
+      <label for="url">url</label>
+      <input name="url" type="text" class="form-control">
+    </div>
+    {{#unless currentUser}}
+      <button class="fb-button btn btn-primary">connect with your FB profile</button>
+    {{else}}
+      <button class="btn btn-primary">create</button>
+    {{/unless}}
+  </form>
+
+    <br>
+    {{#if offer}}
+      {{#unless offer.ready}}
+        working on it
+      {{else}}
+        <div>here is your offer</div>
+        <div>{{offer.title}}</div>
+        <div>public link: roomie.com/offers/{{offer.slug}}</div>
+        <div>we'll also send you this stuff by email</div>
+
+        <div>go to offer: <a href="/my/offers/{{offer._id}}">here</a></div>
+      {{/unless}}
+    {{/if}}
+</template>
