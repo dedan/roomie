@@ -8,12 +8,23 @@
     <div>apply here</div>
 
     <form class="new-request">
-      <label for="subject">subject</label>
-      <input name="subject" type="text" class="form-control">
-      <label for="text">text</label>
-      <textarea name="text" class="form-control"></textarea>
+      <div class="input-group">
+        <label for="subject">subject</label>
+        <input name="subject" type="text" class="form-control">
+      </div>
+      <div class="input-group">
+        <label for="text">text</label>
+        <textarea name="text" class="form-control"></textarea>
+      </div>
 
-      <button class="fb-button btn btn-primary">connect with fb</button>
+      <div class="input-group">
+        {{#if currentUser}}
+          <div>Send request from: {{currentUser.profile.name}}</div>
+          <img src="{{currentUser.profile.picture}}" alt="">
+        {{else}}
+          <button class="fb-button btn btn-primary">connect with fb</button>
+        {{/if}}
+      </div>
 
       <button class="request-button btn btn-primary" {{disabled}}>send request</button>
     </form>
@@ -23,6 +34,6 @@
 
 
   {{else}}
-    request created. <a href="applicant/requests">got to list</a>
+    request created. <a href="/my/requests">got to list</a>
   {{/unless}}
 </template>
