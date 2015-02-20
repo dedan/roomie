@@ -39,19 +39,22 @@ Router.route('/my/offers/:_id', function () {
 Router.route('/my/offers/:offerId/request/:requestId', function () {
   this.render('offerRequest', {
     data: function () {
-      var offer = Offers.findOne({_id: this.params.offerId});
-      var request
+      var offer, request, messages;
 
+      offer = Offers.findOne({_id: this.params.offerId});
       if (offer) {
         request = Requests.findOne({_id: this.params.requestId})
       }
 
-      var bla =  {
-        offer: offer,
-        request: request
+      if (request) {
+        messages = Messages.find({requestId: request._id})
       }
-      console.log(bla);
-      return bla
+
+      return {
+        offer: offer,
+        request: request,
+        messages: messages
+      }
     }
   })
 })

@@ -19,14 +19,32 @@
   <div>list of requests</div>
   <ol>
     {{#each requests}}
-      <li><a href="/my/offers/{{offerId}}/request/{{_id}}">{{subject}}{{offerId}}</a></li>
+      <li><a href="/my/offers/{{offerId}}/request/{{_id}}">{{subject}}</a></li>
     {{/each}}
   </ol>
 </template>
 
+
 <template name="offerRequest">
-  hall
   <div>{{request.subject}}</div>
   <div>{{request.text}}</div>
+
+  <hr>
+  <div>request messages</div>
+
+  <ol>
+    {{#each messages}}
+      <li>{{text}}</li>
+    {{/each}}
+  </ol>
+
+  <form class="offer-request-new-message">
+    <div class="form-group">
+      <label for="message">message text</label>
+      <textarea name="message" class="form-control"></textarea>
+    </div>
+    <button class="btn btn-primary">send message</button>
+  </form>
+
 
 </template>
