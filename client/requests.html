@@ -2,7 +2,35 @@
   requests template
   <ul>
     {{#each requests}}
-      <li>{{subject}}</li>
+      <li><a href="/my/requests/{{_id}}">{{subject}}</a></li>
     {{/each}}
   </ul>
+</template>
+
+
+<template name="request">
+  <dl>
+    <dt>subject</dt>
+    <dd>{{request.subject}}</dd>
+    <dt>text</dt>
+    <dd>{{request.text}}</dd>
+
+    <hr>
+
+    <div>messages</div>
+
+    <ol>
+      {{#each messages}}
+        <li>{{text}}</li>
+      {{/each}}
+    </ol>
+
+    <form class="request-new-message">
+      <div class="form-group">
+        <label for="message">message</label>
+        <textarea name="message" class="form-control"></textarea>
+      </div>
+      <button class="btn btn-primary">send</button>
+    </form>
+  </dl>
 </template>

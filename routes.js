@@ -75,3 +75,14 @@ Router.route('/my/requests', function () {
     }
   })
 })
+
+Router.route('/my/requests/:requestId', function () {
+  this.render('request', {
+    data: function () {
+      return {
+        request: Requests.findOne({_id: this.params.requestId}),
+        messages: Messages.find({requestId: this.params.requestId})
+      }
+    }
+  })
+})
