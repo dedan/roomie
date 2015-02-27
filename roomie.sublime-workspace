@@ -527,6 +527,14 @@
 		"selected_items":
 		[
 			[
+				"pre",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"js",
+				"Set Syntax: JSON"
+			],
+			[
 				"ins",
 				"Package Control: Install Package"
 			],
@@ -743,20 +751,12 @@
 				"Set Syntax: HTML (Jinja Templates)"
 			],
 			[
-				"pre",
-				"HTMLPrettify: Prettify"
-			],
-			[
 				"packar",
 				"Package Control: Remove Package"
 			],
 			[
 				"csv",
 				"CSV: Format"
-			],
-			[
-				"js",
-				"Set Syntax: JSON"
 			],
 			[
 				"json",
@@ -956,10 +956,23 @@
 	},
 	"file_history":
 	[
+		"/Users/dedan/projects/roomie/docs/todo.md",
+		"/Users/dedan/projects/roomie/client/public_offer.html",
+		"/Users/dedan/projects/roomie/client/public_offer.js",
+		"/Users/dedan/.profile",
+		"/Users/dedan/projects/roomie/.gitignore",
+		"/Users/dedan/projects/roomie/client/offers.html",
+		"/Users/dedan/projects/roomie/client/offers.js",
+		"/Users/dedan/projects/roomie/client/requests.js",
+		"/Users/dedan/projects/roomie/client/requests.html",
+		"/Users/dedan/projects/roomie/routes.js",
+		"/var/folders/rv/d4srn3_s5vx_xzfgfm1d3yz40000gn/T/jrnlZbSGdI.txt",
+		"/var/folders/rv/d4srn3_s5vx_xzfgfm1d3yz40000gn/T/jrnlwrw5yF.txt",
+		"/Users/dedan/projects/roomie/client/client_main.js",
+		"/Users/dedan/projects/roomie/models.js",
+		"/Users/dedan/projects/roomie/client/landing.html",
 		"/Users/dedan/projects/roomie/docs/bla.md",
 		"/Users/dedan/projects/roomie/docs/concept.md",
-		"/Users/dedan/projects/roomie/client/client_main.js",
-		"/Users/dedan/projects/roomie/routes.js",
 		"/Users/dedan/projects/roomie/roomie.html",
 		"/Users/dedan/projects/roomie/client/stylesheets/main.css",
 		"/Users/dedan/projects/roomie/roomie.sublime-project",
@@ -1039,7 +1052,6 @@
 		"/Users/dedan/.virtualenvs/postmkvirtualenv",
 		"/Users/dedan/projects/youth-villages/data/.gitignore",
 		"/Users/dedan/projects/youth-villages/data/README.md",
-		"/Users/dedan/.profile",
 		"/Users/dedan/projects/youth-villages/alembic/versions/4ae4386f7182_rename_ppg_id_column_name_to_fix_.py",
 		"/Users/dedan/projects/youth-villages/alembic/versions/413b2897dcd0_add_indices_to_race.py",
 		"/Users/dedan/projects/ipython-sql/src/sql/run.py",
@@ -1071,19 +1083,7 @@
 		"/Users/dedan/projects/youth-villages/alembic/versions/3ae698b49619_add_index_on_diagnoses_in_event_log.py",
 		"/Users/dedan/projects/yv-docs/database.md",
 		"/Users/dedan/projects/youth-villages/alembic/versions/2818431cd14e_add_some_indices_to_group_profile.py",
-		"/Users/dedan/projects/youth-villages/alembic/versions/1fd027bf6607_add_index_on_diagnoses_in_event_log.py",
-		"/Users/dedan/Downloads/463753559472124437-web-restore_1/patience-mvp/bin/generate-migration.sh",
-		"/Users/dedan/projects/youth-villages/articles.md",
-		"/Users/dedan/projects/youth-villages/yv_questions.md",
-		"/Users/dedan/projects/youth-villages/possible_features.md",
-		"/Users/dedan/projects/youth-villages/yv_general.md",
-		"/Users/dedan/projects/youth-villages/todo.md",
-		"/Users/dedan/projects/youth/todo.md",
-		"/Users/dedan/projects/youth/reports.md",
-		"/Users/dedan/projects/youth/questions.md",
-		"/Users/dedan/projects/youth/database_layout.md",
-		"/Users/dedan/projects/youth/README.md",
-		"/var/folders/rv/d4srn3_s5vx_xzfgfm1d3yz40000gn/T/jrnlI_Cv_Y.txt"
+		"/Users/dedan/projects/youth-villages/alembic/versions/1fd027bf6607_add_index_on_diagnoses_in_event_log.py"
 	],
 	"find":
 	{
@@ -1091,7 +1091,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 109.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"*.py",
@@ -1156,6 +1156,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"message",
 			"landing",
 			"column",
 			"clientid_c",
@@ -1282,8 +1283,7 @@
 			"julia",
 			"jan",
 			", \"",
-			"workon",
-			"100"
+			"workon"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1409,8 +1409,44 @@
 		"selected_items":
 		[
 			[
+				"pub",
+				"client/public_offer.js"
+			],
+			[
+				"publ",
+				"client/public_offer.html"
+			],
+			[
+				"git",
+				".gitignore"
+			],
+			[
+				"offer",
+				"client/offers.js"
+			],
+			[
+				"of",
+				"client/offers.js"
+			],
+			[
+				"reque",
+				"client/requests.html"
+			],
+			[
+				"rout",
+				"routes.js"
+			],
+			[
 				"clie",
 				"client/client_main.js"
+			],
+			[
+				"land",
+				"client/landing.html"
+			],
+			[
+				"mod",
+				"models.js"
 			],
 			[
 				"rou",
@@ -1551,10 +1587,6 @@
 			[
 				"tod",
 				"docs/todo.md"
-			],
-			[
-				"git",
-				".gitignore"
 			],
 			[
 				"datre",
@@ -1887,38 +1919,6 @@
 			[
 				"appcon",
 				"app/controllers/application_controller.rb"
-			],
-			[
-				"ou",
-				"outline.md"
-			],
-			[
-				"appr",
-				"config/application.rb"
-			],
-			[
-				"cre",
-				"db/migrate/20140514134250_create_codes.rb"
-			],
-			[
-				"creu",
-				"db/migrate/20140514134721_create_users.rb"
-			],
-			[
-				"cod",
-				"app/models/code.rb"
-			],
-			[
-				"dev",
-				"config/environments/development.rb"
-			],
-			[
-				"use",
-				"db/migrate/20140514134721_create_users.rb"
-			],
-			[
-				"user",
-				"db/migrate/20140514134721_create_users.rb"
 			]
 		],
 		"width": 0.0
