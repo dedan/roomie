@@ -20,15 +20,31 @@
   <ol>
     {{#each requests}}
       <li>
-        <a href="/my/offers/{{offerId}}/request/{{_id}}">{{subject}}</a>
+        <button class="request-link">{{subject}}</button>
         <img src="{{userPicture}}" alt="">
       </li>
     {{/each}}
   </ol>
+
+  <hr>
+
+  {{#if showRequest}}
+    {{showRequest.subject}}
+
+    <div class="btn-group" role="group" aria-label="...">
+      <button type="button" class="btn btn-default prev-button">prev</button>
+      <button type="button" class="btn btn-warning">nothing</button>
+      <button type="button" class="btn btn-default next-button">next</button>
+    </div>
+  {{/if}}
 </template>
 
 
 <template name="offerRequest">
+
+  <a href="/my/offers/{{request.offerId}}" class="btn btn-danger">x</a>
+
+
   <div>{{request.subject}}</div>
   <div>{{request.text}}</div>
 
@@ -49,5 +65,10 @@
     <button class="btn btn-primary">send message</button>
   </form>
 
+  <div class="btn-group" role="group" aria-label="...">
+    <button type="button" class="btn btn-default">back</button>
+    <button type="button" class="btn btn-default">nothing</button>
+    <button type="button" class="btn btn-default">next</button>
+  </div>
 
 </template>
