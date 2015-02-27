@@ -1,11 +1,15 @@
 Template.publicOffer.events({
   'submit .new-request': function (event) {
 
+    var user = Meteor.user()
+
     var requestId = Requests.insert({
       subject: event.target.subject.value,
       text: event.target.text.value,
       offerId: this.offer._id,
-      userId: Meteor.user()._id
+      userName: user.profile.name,
+      userPicture: user.profile.picture,
+      userId: user._id
     })
     Session.set('requestId', requestId)
 
