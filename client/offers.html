@@ -1,12 +1,12 @@
 
 <template name="offers">
-  <ul>
+
+  <h3>my offers</h3>
+  <div class="collection">
     {{#each offers}}
-      <li>
-        <a href="/my/offers/{{_id}}">{{title}}</a>
-      </li>
+      <a class="collection-item" href="/my/offers/{{_id}}">{{title}}</a>
     {{/each}}
-  </ul>
+  </div>
 </template>
 
 
