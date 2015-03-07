@@ -9,7 +9,8 @@ Template.publicOffer.events({
       offerId: this.offer._id,
       userName: user.profile.name,
       userPicture: user.profile.picture,
-      userId: user._id
+      userId: user._id,
+      offerTitle: this.offer.title
     })
     Session.set('requestId', requestId)
 

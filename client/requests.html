@@ -1,14 +1,19 @@
 <template name="requests">
-  requests template
-  <ul>
+
+  <h3>my requests</h3>
+
+  <div class="collection">
     {{#each requests}}
-      <li><a href="/my/requests/{{_id}}">{{subject}}</a></li>
+      <a class="collection-item" href="/my/requests/{{_id}}">{{subject}}</a>
     {{/each}}
-  </ul>
+  </div>
 </template>
 
 
 <template name="request">
+
+  <h3>{{request.offerTitle}}</h3>
+
   <dl>
     <dt>subject</dt>
     <dd>{{request.subject}}</dd>
