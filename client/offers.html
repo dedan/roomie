@@ -11,32 +11,55 @@
 
 
 <template name="offer">
-  <div>{{offer.title}}</div>
-  <div>{{offer.email}}</div>
-  <div><a href="/offers/{{offer.slug}}">public link</a></div>
+  <h3>{{offer.title}}</h3>
 
-  <hr>
-  <div>list of requests</div>
-  <ol>
-    {{#each requests}}
-      <li>
-        <button class="request-link">{{subject}}</button>
-        <img src="{{userPicture}}" alt="">
-      </li>
-    {{/each}}
-  </ol>
+  <div>
+    <span>here is the public link to share your offer: </span>
+    <a href="/offers/{{offer.slug}}">www.roomie.com/offers/{{offer.slug}}</a>
+  </div>
 
-  <hr>
 
-  {{#if showRequest}}
-    {{showRequest.subject}}
+  {{#unless showRequest}}
+    <h3>list of requests</h3>
+    <ul class="collection">
+        {{#each requests}}
+          <a href="#" class="collection-item avatar request-link">
+            <img src="{{userPicture}}" alt="" class="circle">
+            <span class="title">{{subject}}</span>
+            <p>
+              {{userName}}
+            </p>
+            <!-- <a href="#!" class="secondary-content"><i class="mdi-action-grade"></i></a> -->
+            <!-- <button class="btn request-link">{{subject}}</button> -->
+          </a>
+        {{/each}}
+    </ul>
+  {{/unless}}
 
-    <div class="btn-group" role="group" aria-label="...">
-      <button type="button" class="btn btn-default prev-button">prev</button>
-      <button type="button" class="btn btn-warning">nothing</button>
-      <button type="button" class="btn btn-default next-button">next</button>
-    </div>
-  {{/if}}
+  <div>
+    {{#if showRequest}}
+
+      <div class="card-panel">
+        <img src="{{showRequest.userPicture}}" alt="" class="circle">
+        <span>{{showRequest.userName}}</span>
+
+        <a class="btn-floating right red close-request-button">
+          <i class="mdi-content-clear"></i>
+        </a>
+        <h4>{{showRequest.subject}}</h4>
+        <p class="flow-text">{{showRequest.text}}</p>
+
+      </div>
+
+
+
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default prev-button">prev</button>
+        <button type="button" class="btn btn-warning">nothing</button>
+        <button type="button" class="btn btn-default next-button">next</button>
+      </div>
+    {{/if}}
+  </div>
 </template>
 
 

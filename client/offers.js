@@ -35,6 +35,9 @@ Template.offer.events({
         currentRequestId = Session.get('showRequest')._id,
         currentIndex = _.indexOf(requestIds, currentRequestId);
     Session.set('showRequest', requests[currentIndex - 1])
+  },
+  'click .close-request-button': function (event) {
+    Session.set('showRequest', null)
   }
 })
 
